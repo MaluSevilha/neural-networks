@@ -1,0 +1,33 @@
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.home-card {
+  border: 1px solid lightgrey;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  background: white;
+}
+
+.home-card h3 {
+  margin-top: 0;
+}
+
+a[rel="prev"], a[rel="next"] {
+    display: none !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        width: 100%;
+    }
+    
+    .navbar-collapse > ul.navbar-nav:last-of-type,
+    .navbar-collapse .navbar-right {
+        margin-left: auto !important;
+    }
+}

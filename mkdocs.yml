@@ -1,0 +1,56 @@
+site_name: Maria Luiza Sevilha | Neural Networks
+site_description: Course portfolio for Artificial Neural Networks and Deep Learning (Insper, 2026.2)
+site_url: https://malusevilha.github.io/neural-networks/
+repo_url: https://github.com/MaluSevilha/neural-networks
+repo_name: MaluSevilha/neural-networks
+edit_uri: ""
+
+theme:
+  name: simplex
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+  favicon: assets/favicon.svg
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+nav:
+  - Home: index.md
+  - Activities:
+      - Data: activities/data/index.md
+      - Perceptron: activities/perceptron.md
+      - Multi-Layer Perceptron: activities/mlp.md
+      - VAE: activities/vae.md
+  - Projects:
+      - Overview: projects/index.md
+  - About: about.md
