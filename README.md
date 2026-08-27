@@ -6,14 +6,34 @@ The website is built with [Material for MkDocs](https://squidfunk.github.io/mkdo
 
 ## Local development
 
+### Setup
+First create and activate the environment:
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
+
+Then download the requirements to properly reproduce the activities results:
+```bash
 pip install -r requirements.txt
+```
+
+### Use
+
+Firstly, activate the environment:
+```bash
+source .venv/bin/activate
+```
+
+Then, you can deploy locally the site using:
+```bash
 mkdocs serve
 ```
 
-Then open the local address shown by MkDocs.
+To see the site, open the local address shown in the terminal.
+
+TO reproduce the activities, look for the `README.md`
 
 ## Structure
 

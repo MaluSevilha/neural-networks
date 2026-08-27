@@ -17,11 +17,11 @@ This site is my course portfolio for **Artificial Neural Networks and Deep Learn
 <div class="home-grid" markdown>
 
 <div class="home-card" markdown>
-### **Activities**
+### **Exercises**
 
 Course exercises organized by topic, with code, results, figures, and analysis.
 
-[View activities →](activities/data/)
+[View exercises →](exercises/data/index.md)
 </div>
 
 <div class="home-card" markdown>
@@ -29,7 +29,7 @@ Course exercises organized by topic, with code, results, figures, and analysis.
 
 Larger experiments and project deliverables developed during the semester.
 
-[View projects →](projects/)
+[View projects →](projects/index.md)
 </div>
 
 </div>

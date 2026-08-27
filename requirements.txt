@@ -1,2 +1,6 @@
 mkdocs-material
 mkdocs-bootswatch
+numpy
+pandas
+matplotlib
+scikit-learn
