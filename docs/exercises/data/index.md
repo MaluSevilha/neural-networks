@@ -1,4 +1,4 @@
-# 01 · Data
+<h1>01 · Data</h1>
 
 *Artificial Neural Networks and Deep Learning · Insper · 2026.2*
 
@@ -8,26 +8,26 @@ This report studies how the geometry, spread, dimensionality, and preprocessing 
     The entire activity uses one random-number generator, initialized exactly once with `rng = np.random.default_rng(42)`. The same `rng` instance is reused throughout the report. The complete implementation is available in [`data_activity.py`](code/data_activity.py).
 
 
-## 1 Point Clouds: Geometry and Spread in 2D
+<h2>1 Point Clouds: Geometry and Spread in 2D</h2>
 
 Understanding how data is distributed is the first step before designing a network architecture. In this exercise the idea is to generate and measure two-dimensional point clouds, observing how the distribution affects the complexity of the decision boundaries a neural network would need to learn.
 
-### 1.A Generate the Clouds
+<h3>1.a Generate the Clouds</h3>
 
 Four Gaussian synthetic point clouds were generated in two dimensions, with 100 samples per class. The means and standard deviations follow the given configuration:
 
 | Class | Mean | Standard deviation |
-|-------|------|--------------------|
+|---|---|---|
 | 0 | (2, 3) | (0.8, 2.5) |
 | 1 | (5, 6) | (1.2, 1.9) |
 | 2 | (8, 1) | (0.9, 0.9) |
 | 3 | (15, 4) | (0.5, 2.0) |
 
-The points are generated independently for each coordinate according to the corresponding Gaussian distribution. The markers in Figure 1 represent the specified class means rather than sample means.
+The points are generated independently for each coordinate according to the corresponding Gaussian distribution. With that definition, the following plot can be presented with the generated points, segregated by their classes:
 
-![Figure 1 — Original point clouds with class centers and sketched boundaries](assets/figures/figure1.png)
+![Figure 1: Original point clouds with class centers and sketched boundaries](assets/figures/figure1.png)
 
-**Figure 1 — Original point clouds ($s=1$).** The `X` markers indicate the class centers. The dashed curves are only a qualitative sketch of possible nonlinear decision boundaries; no classifier was trained for this figure.
+On Figure 1, the `X` markers indicate the class centers. The dashed curves are only a qualitative sketch of possible nonlinear decision boundaries; no classifier was trained for this figure.
 
 The implementation used for the four classes is:
 
@@ -42,19 +42,19 @@ for k, (mu, sigma) in enumerate(zip(MEANS, STDS)):
     )
 ```
 
-### B — More or less spread out
+### 1.b More or less spread out
 
-To isolate the effect of dispersion, the same four class means were kept fixed while every standard deviation was multiplied by a scale factor
+To isolate the effect of dispersion, the same four class means were kept fixed while every standard deviation was multiplied by a scale factor. This way, the menas never change, but the standard deviation does, changing how spread each cloud will be around it's center. The values for the scale factors are:
 
-$$
- s \in \{0.5,\ 1.0,\ 2.0,\ 4.0\}.
-$$
+<p style="display: flex; align-items: center; justify-content: center; font-size: 1.2rem; gap: 0.3rem;">
+  <var>s</var> &isin; {0.5, 1.0, 2.0, 4.0}
+</p>
 
 This creates four independent datasets, each containing the same four classes with 100 points per class.
 
-![Figure 2 — Effect of increasing the spread](assets/figures/figure2.png)
+![Figure 2: Effect of increasing the spread](assets/figures/figure2.png)
 
-**Figure 2 — Effect of increasing the spread.** All four subplots use the same axis limits, so the visual comparison reflects only the change in dispersion.
+All four subplots use the same axis limits, so the visual comparison reflects only the change in dispersion.
 
 For $s=1$, the separation ratio was calculated as
 

@@ -8,15 +8,6 @@ edit_uri: ""
 theme:
   name: simplex
   language: en
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
-    - navigation.top
-    - toc.follow
-    - search.highlight
-    - content.code.copy
   favicon: assets/favicon.svg
 
 plugins:

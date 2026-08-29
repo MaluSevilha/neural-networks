@@ -112,12 +112,12 @@ def exercise_1():
     for idx, (x, boundary) in enumerate(boundary_specs):
         ax.plot(
             x, boundary(x), "--", linewidth=1.8,
-            color="black", alpha=0.72,
+            color="black",
             label="illustrative decision boundaries" if idx == 0 else None,
             zorder=4,
         )
 
-    ax.set_title("Figure 1 — Original point clouds ($s = 1$)")
+    ax.set_title("Figure 1: Original point clouds ($s = 1$)")
     ax.set_xlabel("$x_1$")
     ax.set_ylabel("$x_2$")
     ax.set_xlim(-0.8, 17.0)
@@ -159,7 +159,7 @@ def exercise_1():
     for ax in axes[-1, :]:
         ax.set_xlabel("$x_1$")
     axes[0, 0].legend(title="Class", fontsize=8)
-    fig.suptitle("Figure 2 — Effect of increasing the spread", fontsize=15)
+    fig.suptitle("Figure 2: Effect of increasing the spread", fontsize=15)
     fig.savefig(FIG_DIR / "figure2.png", bbox_inches="tight")
     plt.close(fig)
 
@@ -181,7 +181,7 @@ def exercise_1():
             (row["s"], row["mixing_rate"]),
             xytext=(0, 9), textcoords="offset points", ha="center"
         )
-    ax.set_title("Figure 3 — Mixing rate as a function of spread")
+    ax.set_title("Figure 3: Mixing rate as a function of spread")
     ax.set_xlabel("Spread scale factor $s$")
     ax.set_ylabel("Mixing rate")
     ax.set_xticks(SCALES)
@@ -261,14 +261,14 @@ def exercise_2():
             s=15, alpha=0.5, label=f"Class {cls}"
         )
 
-    axes[0].set_title("Dataset I — shifted Gaussians")
-    axes[1].set_title("Dataset II — concentric shells")
+    axes[0].set_title("Dataset I: shifted Gaussians")
+    axes[1].set_title("Dataset II: concentric shells")
     for ax in axes:
         ax.set_xlabel("PC1")
         ax.set_ylabel("PC2")
         ax.legend(title="Class")
         ax.grid(alpha=0.18)
-    fig.suptitle("Figure 4 — PCA projections into two dimensions", fontsize=15)
+    fig.suptitle("Figure 4: PCA projections into two dimensions", fontsize=15)
     fig.savefig(FIG_DIR / "figure4.png", bbox_inches="tight")
     plt.close(fig)
 
@@ -292,7 +292,7 @@ def exercise_2():
         ax.set_ylabel("Count")
         ax.legend(title="Class")
         ax.grid(alpha=0.18)
-    fig.suptitle("Figure 5 — Radius distributions in 5D", fontsize=15)
+    fig.suptitle("Figure 5: Radius distributions in 5D", fontsize=15)
     fig.savefig(FIG_DIR / "figure5.png", bbox_inches="tight")
     plt.close(fig)
 
@@ -432,7 +432,7 @@ def run_exercise_3(train_path=None):
     axes[1].set_ylabel("Count")
     for ax in axes:
         ax.grid(alpha=0.2)
-    fig.suptitle("Figure 6 — Effect of the log transformation", fontsize=15)
+    fig.suptitle("Figure 6: Effect of the log transformation", fontsize=15)
     fig.savefig(FIG_DIR / "figure6.png", bbox_inches="tight")
     plt.close(fig)
 

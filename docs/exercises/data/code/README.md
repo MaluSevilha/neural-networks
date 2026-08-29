@@ -23,5 +23,5 @@ Download it at: https://www.kaggle.com/competitions/spaceship-titanic/.
 With this, you can reproduce the results present in `docs/activities/data/code/output.txt` in your terminal. To save a new version of your local run into the document use:
 
 ```bash
-python3 docs/activities/data/code/data_activity.py > docs/activities/data/code/output.txt
+python3 docs/exercises/data/code/data_activity.py > docs/exercises/data/code/output.txt
 ```
