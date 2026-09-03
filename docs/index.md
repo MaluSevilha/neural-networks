@@ -1,31 +1,27 @@
-# **Artificial Neural Networks & Deep Learning**
+# Artificial Neural Networks & Deep Learning
 
 **Owner:** Maria Luiza Sevilha Seraphico
 
 **Teacher:** Humberto Sandmann
 
-<font color = "red">
 **Insper · 2026.2**
-</font>
-
-___
 
 ## Overview
 
-This site is my course portfolio for **Artificial Neural Networks and Deep Learning**. It collects exercises, experiments, projects, and technical notes developed throughout the course.
+This site is a course portfolio for **Artificial Neural Networks and Deep Learning**. It the results developed throughout the course. Every network here is **implemented from scratch**, not imported from a library.
 
 <div class="home-grid" markdown>
 
 <div class="home-card" markdown>
-### **Exercises**
+### Exercises
 
 Course exercises organized by topic, with code, results, figures, and analysis.
 
-[View exercises →](exercises/data/index.md)
+[View exercises →](exercises/index.md)
 </div>
 
 <div class="home-card" markdown>
-### **Projects**
+### Projects
 
 Larger experiments and project deliverables developed during the semester.
 
@@ -34,13 +30,12 @@ Larger experiments and project deliverables developed during the semester.
 
 </div>
 
-## RoadMap
+## Roadmap
 
-| Stage |         Topic          |    Status       |
-|-------|------------------------|-----------------|
-| **01**|        **Data**        | **In progress** |
-|  02   |      Perceptron        |   Coming soon   |
-|  03   | Multi-Layer Perceptron |   Coming soon   |
-|  04   |          VAE           |   Coming soon   |
+| Stage | Topic | Status |
+|---|---|---|
+| **01** | **Data** | **Done** |
+| **02** | **Perceptron** | **Pending** |
+| **03** | **MLP** | **Pending** |
 
-> This portfolio is built as a living site: each new assignment will be added as its own activity rather than replacing previous work.
+> This portfolio is built as a living site: each new assignment will be added as its own activity rather than replacing previous work. The table above reflects the exercises currently published for 2026.2.

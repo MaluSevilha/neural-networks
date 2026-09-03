@@ -1,171 +1,224 @@
 /* =========================================================
-   Existing home page styles (kept as-is)
+   Custom red / crimson theme on top of Material for MkDocs
    ========================================================= */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #B3261E;
+  --md-primary-fg-color--light: #D84C3E;
+  --md-primary-fg-color--dark:  #7A140F;
+  --md-accent-fg-color:         #FF5A3C;
+
+  --nn-bg:        #FAF7F5;
+  --nn-surface:   #FFFFFF;
+  --nn-border:    #EAD9D6;
+  --nn-ink:       #241412;
+  --nn-muted:     #6E5A56;
+  --nn-red:       #B3261E;
+  --nn-red-dark:  #7A140F;
+  --nn-red-soft:  #FBEAE8;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #C63B30;
+  --md-primary-fg-color--light: #E0685A;
+  --md-primary-fg-color--dark:  #7A140F;
+  --md-accent-fg-color:         #FF7A5C;
+  --md-default-bg-color:        #1A1210;
+  --md-default-fg-color:        #F1E7E4;
+
+  --nn-bg:        #1A1210;
+  --nn-surface:   #221715;
+  --nn-border:    #3A2622;
+  --nn-ink:       #F1E7E4;
+  --nn-muted:     #C9B3AE;
+  --nn-red:       #E0685A;
+  --nn-red-dark:  #FF7A5C;
+  --nn-red-soft:  #2E1A17;
+}
+
+/* Typography */
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--nn-ink);
+  border-bottom: 3px solid var(--nn-red);
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.2rem;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+  color: var(--nn-red-dark);
+  padding-top: 0.4rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: var(--nn-red);
+}
+
+.md-typeset h3 {
+  font-weight: 700;
+  color: var(--nn-ink);
+}
+
+.md-typeset h3::before {
+  content: "▍";
+  color: var(--nn-red);
+  margin-right: 0.35rem;
+  font-weight: 900;
+}
+
+/* Header / nav */
+.md-header {
+  background: linear-gradient(120deg, var(--nn-red-dark), var(--nn-red) 70%);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+
+.md-tabs {
+  background: var(--nn-red-dark);
+}
+
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: var(--nn-red);
+}
+
+/* Links */
+.md-typeset a {
+  color: var(--nn-red-dark);
+  text-decoration-thickness: 1px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: var(--nn-red);
+}
+
+.md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* Landing-page cards */
 .home-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.1rem;
   margin: 1.5rem 0 2rem;
 }
 
+@media (max-width: 640px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .home-card {
-  border: 1px solid lightgrey;
-  border-radius: 0.75rem;
-  padding: 1.25rem;
-  background: white;
+  border: 1px solid var(--nn-border);
+  border-left: 4px solid var(--nn-red);
+  border-radius: 0.6rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--nn-surface);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(179, 38, 30, 0.12);
 }
 
 .home-card h3 {
   margin-top: 0;
+  color: var(--nn-red-dark);
 }
 
-a[rel="prev"], a[rel="next"] {
-    display: none !important;
+.home-card h3::before {
+  content: none;
 }
 
-@media (min-width: 992px) {
-    .navbar-collapse {
-        display: flex !important;
-        width: 100%;
-    }
-
-    .navbar-collapse > ul.navbar-nav:last-of-type,
-    .navbar-collapse .navbar-right {
-        margin-left: auto !important;
-    }
+[data-md-color-scheme="slate"] .home-card h3 {
+  color: var(--nn-red);
 }
 
-/* =========================================================
-   Markdown tables — this is the fix for tables not rendering
-   with any visible styling. The Bootswatch/Bootstrap CSS only
-   styles <table class="table">, but MkDocs' Markdown table
-   extension outputs plain <table> with no class. We style any
-   table generated inside the article body directly.
-   ========================================================= */
-article table,
-.md-content table {
-  width: 100%;
-  margin: 1.5rem 0;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-article table th,
-article table td,
-.md-content table th,
-.md-content table td {
-  border: 1px solid #dee2e6;
-  padding: 0.55rem 0.85rem;
-  text-align: left;
-  vertical-align: top;
-}
-
-article table thead th,
-.md-content table thead th {
-  background-color: #f8f2ea;
-  border-bottom: 2px solid #d9534f;
-  font-weight: 600;
-  color: #212529;
-}
-
-article table tbody tr:nth-child(even),
-.md-content table tbody tr:nth-child(even) {
-  background-color: #fbfaf8;
-}
-
-article table tbody tr:hover,
-.md-content table tbody tr:hover {
-  background-color: #f5efe6;
-}
-
-/* Right-aligned numeric columns produced by markdown
-   ( |---: | syntax ) keep their alignment */
-article table td[align="right"],
-article table th[align="right"] {
-  text-align: right;
-}
-
-/* =========================================================
-   Overall look and feel — tuned to match the previous design:
-   warm off-white background, orange/red accent, clean sidebar
-   ========================================================= */
-:root {
-  --brand-accent: #d9534f;
-  --brand-accent-dark: #b52b27;
-}
-
-body {
-  background-color: #fdfcfb;
-  color: #212529;
-}
-
-/* Navbar accent */
-.navbar {
-  border-bottom: 3px solid var(--brand-accent);
-}
-
-.navbar-brand,
-.navbar-nav .nav-link.active {
-  font-weight: 600;
-}
-
-.navbar-nav .nav-link:hover {
-  color: var(--brand-accent) !important;
-}
-
-/* Headings */
-article h1,
-.md-content h1 {
-  color: #1a1a1a;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-
-article h2,
-.md-content h2 {
-  margin-top: 2.25rem;
-}
-
-article h3,
-.md-content h3 {
-  color: #333;
-  margin-top: 1.75rem;
-}
-
-/* Body copy readability */
-article p,
-.md-content p {
-  line-height: 1.65;
-  max-width: 70ch;
-}
-
-/* Inline code and code blocks */
-article code,
-.md-content code {
-  background-color: #f4f0ea;
-  ;
-  padding: 0.1rem 0.35rem;
-  border-radius: 0.25rem;
-  font-size: 0.9em;
-}
-
-article pre code {
-  background-color: transparent;
-  color: inherit;
-  padding: 0;
-}
-
-article pre,
-.md-content pre {
-  background-color: #282c34;
+/* Tables */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--nn-border);
   border-radius: 0.5rem;
-  padding: 1rem;
+  overflow: hidden;
 }
 
-/* Admonitions (!!! info, !!! warning, etc.) */
-.admonition {
-  border-left: 4px solid var(--brand-accent);
-  border-radius: 0.4rem;
-  background-color: #fbf7f2;
+.md-typeset table:not([class]) th {
+  background: var(--nn-red);
+  color: #fff;
+  font-weight: 700;
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) {
+  background: var(--nn-red-soft);
+}
+
+/* Admonitions tuned to the palette */
+.md-typeset .admonition.info,
+.md-typeset details.info,
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: var(--nn-red);
+}
+
+.md-typeset .admonition.info > .admonition-title,
+.md-typeset .admonition.note > .admonition-title {
+  background-color: var(--nn-red-soft);
+}
+
+.md-typeset .admonition.info > .admonition-title::before,
+.md-typeset .admonition.note > .admonition-title::before {
+  background-color: var(--nn-red);
+}
+
+/* Deadline badges used on exercise pages */
+.nn-deadline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--nn-red-soft);
+  border: 1px solid var(--nn-red);
+  color: var(--nn-red-dark);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.15rem 0.4rem 0.9rem 0;
+}
+
+[data-md-color-scheme="slate"] .nn-deadline {
+  color: var(--nn-red);
+}
+
+/* Code */
+.md-typeset code {
+  color: var(--nn-red-dark);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  color: var(--nn-red);
+}
+
+/* Figures */
+.md-typeset img {
+  border-radius: 0.5rem;
+  border: 1px solid var(--nn-border);
+}
+
+/* Footer */
+.md-footer {
+  background: var(--nn-red-dark);
+}
+
+.md-footer-meta {
+  background: #5A0F0B;
+}
+
+/* Hide prev/next pager arrows some editors add by hand */
+a[rel="prev"], a[rel="next"] {
+  display: none !important;
 }

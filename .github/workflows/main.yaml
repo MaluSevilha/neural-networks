@@ -1,34 +1,32 @@
 name: ci
-on:
-  - push
-  - pull_request
-  
-# Environment
-env:
-  CI: true
-  PYTHON_VERSION: 3.12
 
-# Jobs to run
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PYTHON_VERSION: "3.12"
+
 jobs:
-     
-  # Build and deploy documentation site
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-      # Checkout source form GitHub
-      - uses: actions/checkout@v4
-
-      # Install Python runtime and dependencies
-      - uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
 
-      # pip
-      - run: |
-          pip install -r requirements.txt
-          
-      # deploy
-      - run: |
-          mkdocs gh-deploy --force
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force --clean
