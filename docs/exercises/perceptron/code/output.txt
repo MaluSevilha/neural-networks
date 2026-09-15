@@ -1,0 +1,12 @@
+=== EXERCISE 1 ===
+Final w = [0.05049707 0.02887168], b = -0.2500
+Epochs to convergence = 26, accuracy = 1.0000
+w / ||w|| (eta=0.01) = [0.86812305 0.49634905]
+eta=1.0 -> epochs = 33, accuracy = 1.0000
+w (eta=1.0) = [4.96350549 3.76681624], b = -29.0000
+w / ||w|| (eta=1.0) = [0.7965832  0.60452891]
+
+=== EXERCISE 2 ===
+Final w = [0.05448404 0.0480433 ], b = -0.0700, acc = 0.5015
+Pocket w = [0.01066397 0.00872652], b = -0.0700, acc = 0.7110
+Pocket best found at epoch = 86
