@@ -1,0 +1,2329 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course portfolio for Artificial Neural Networks and Deep Learning (Insper, 2026.2)">
+      
+      
+      
+        <link rel="canonical" href="https://malusevilha.github.io/neural-networks/exercises/data/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../perceptron/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Data - Maria Luiza Sevilha | Neural Networks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Maria Luiza Sevilha | Neural Networks" class="md-header__button md-logo" aria-label="Maria Luiza Sevilha | Neural Networks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Maria Luiza Sevilha | Neural Networks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MaluSevilha/neural-networks" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MaluSevilha/neural-networks
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exercises
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Maria Luiza Sevilha | Neural Networks" class="md-nav__button md-logo" aria-label="Maria Luiza Sevilha | Neural Networks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    Maria Luiza Sevilha | Neural Networks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MaluSevilha/neural-networks" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MaluSevilha/neural-networks
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#point-clouds-geometry-and-spread-in-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point Clouds: Geometry and Spread in 2D
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-generate-the-clouds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Generate the clouds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-more-or-less-spread-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — More or less spread out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-dataset-i-shifted-gaussians" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Dataset I: shifted Gaussians
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-dataset-ii-concentric-shells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — Dataset II: concentric shells
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-visualize-and-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Visualize and compare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D — Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-get-to-know-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Get to know the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-split-before-you-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — Split before you transform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-preprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Preprocess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-verify-and-visualize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D — Verify and visualize
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. MLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#point-clouds-geometry-and-spread-in-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point Clouds: Geometry and Spread in 2D
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-generate-the-clouds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Generate the clouds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-more-or-less-spread-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — More or less spread out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-dataset-i-shifted-gaussians" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Dataset I: shifted Gaussians
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-dataset-ii-concentric-shells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — Dataset II: concentric shells
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-visualize-and-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Visualize and compare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D — Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-get-to-know-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Get to know the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-split-before-you-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — Split before you transform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-preprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Preprocess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-verify-and-visualize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D — Verify and visualize
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-data">1 · Data<a class="headerlink" href="#1-data" title="Permanent link">&para;</a></h1>
+<p>This report studies how the geometry, spread, dimensionality, and preprocessing of data affect the structure and difficulty of a classification problem. It follows one central idea: before choosing a neural-network architecture, it is necessary to understand the distribution of the data that the model will receive.</p>
+<div class="admonition info">
+<p class="admonition-title">Reproducibility</p>
+<p>The entire activity uses one random-number generator, initialized exactly once with <code>rng = np.random.default_rng(42)</code>. The same <code>rng</code> instance is reused throughout the report, guaranteeing reproducibility. The complete implementation is available in <a href="code/data_activity.py"><code>data_activity.py</code></a>.</p>
+</div>
+<details open="open">
+<summary>See <code>data_activity.py</code></summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patheffects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pe</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># One RNG is reused throughout the whole report</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Directories to save images generated and retrieve data</span>
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FIG_DIR</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"figures"</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"data"</span>
+<span class="n">FIG_DIR</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Params for plotting figures</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s2">"figure.dpi"</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+    <span class="s2">"savefig.dpi"</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+    <span class="s2">"axes.titlesize"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s2">"axes.labelsize"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"font.size"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1"># ============================================================</span>
+<span class="c1"># Exercise 1: Point clouds in 2D</span>
+<span class="c1"># ============================================================</span>
+
+<span class="c1"># Initializing matrix and variables following the exercise prompt</span>
+<span class="n">MEANS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">15.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">STDS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">N_PER_CLASS</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">SCALES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_2d_clouds</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Generate four datasets of same size, using a Gaussian distribution. Parameters</span>
+<span class="sd">    are given in the question prompt as the following:</span>
+
+<span class="sd">    Class 0: Mean = [2, 3], Standard Deviation = [0.8, 2.5]</span>
+<span class="sd">    Class 1: Mean = [5, 6], Standard Deviation = [1.2, 1.9]</span>
+<span class="sd">    Class 0: Mean = [8, 1], Standard Deviation = [0.9, 0.9]</span>
+<span class="sd">    Class 0: Mean = [15, 4], Standard Deviation = [0.5, 2.0]</span>
+
+<span class="sd">    For each of the created dataset, apply a scale factor (s) to the standard deviation.</span>
+<span class="sd">    The values it takes are given by the question:</span>
+
+<span class="sd">    s = [0.5, 1.0, 2.0, 4.0]</span>
+<span class="sd">    """</span>
+
+    <span class="n">datasets</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">SCALES</span><span class="p">:</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># stores the generated points</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># stores the respective classes the points belong to</span>
+
+        <span class="k">for</span> <span class="n">class_id</span><span class="p">,</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">MEANS</span><span class="p">,</span> <span class="n">STDS</span><span class="p">)):</span> 
+            <span class="c1"># Example = [0, ([2, 3], [0.8, 2.5])]</span>
+            <span class="c1">## class_id = 0</span>
+            <span class="c1">## mu = [2, 3]</span>
+            <span class="c1">## sigma = [0.8, 2.5] </span>
+
+            <span class="n">points</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N_PER_CLASS</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># gaussian normal distribution</span>
+            <span class="n">classes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">class_id</span><span class="p">]</span> <span class="o">*</span> <span class="n">N_PER_CLASS</span><span class="p">)</span>
+
+        <span class="n">datasets</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">classes</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">datasets</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">separation_ratios</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    How separated two classes are in relation to their size/spread? </span>
+
+<span class="sd">    (Compute r_ij for all six class pairs at s = 1)</span>
+<span class="sd">    """</span>
+
+    <span class="n">sigma_bar</span> <span class="o">=</span> <span class="n">STDS</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># mean standard deviation between both axis</span>
+
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># For each possible pair of classes (without repeting pairs)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">MEANS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">MEANS</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>   <span class="c1"># between the mean points</span>
+
+            <span class="c1"># Distance between the means divided by the classes sizes(spread)</span>
+            <span class="n">ratio</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_bar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">sigma_bar</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="c1"># r_ij</span>
+            <span class="c1">## Small r_ij = more blended clouds</span>
+            <span class="c1">## Big r_ij = more separated clouds</span>
+
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">ratio</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"Class i"</span><span class="p">,</span> <span class="s2">"Class j"</span><span class="p">,</span> <span class="s2">"Center distance"</span><span class="p">,</span> <span class="s2">"r_ij"</span><span class="p">],)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mixing_rate</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Fraction of samples whose nearest class center has the wrong label </span>
+<span class="sd">    (it's not inside it's own cloud)</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Calculate the distance between each point and the four centers</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">MEANS</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1">## np.linalg.norm = calculates Pythagoras distance</span>
+    <span class="c1">## result is a (400, 4) matrix</span>
+
+    <span class="c1"># Get the smallest distance from each point and returns its id</span>
+    <span class="n">nearest_center</span> <span class="o">=</span> <span class="n">distances</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Return the ones that don't correspond to their respective cloud_id</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">nearest_center</span> <span class="o">!=</span> <span class="n">labels</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exercise_1</span><span class="p">():</span>
+    <span class="c1"># Generating four clouds of 2d points</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="n">generate_2d_clouds</span><span class="p">()</span>
+
+    <span class="c1"># Figure 1: original point cloud at s = 1.</span>
+    <span class="c1"># The dashed lines are an illustrative sketch, not a fitted classifier.</span>
+    <span class="n">points</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="c1"># Mask to get the points only inside the focused cloud</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="n">class_id</span>
+
+        <span class="c1"># Plotting the points</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="n">points</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.62</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Class </span><span class="si">{</span><span class="n">class_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Plotting the mean of the cloud</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">MEANS</span><span class="p">[</span><span class="n">class_id</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"X"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">155</span><span class="p">,</span>
+            <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Annotating the mean subtitle on the plot</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+            <span class="sa">rf</span><span class="s2">"$\mu_</span><span class="si">{</span><span class="n">class_id</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="n">MEANS</span><span class="p">[</span><span class="n">class_id</span><span class="p">],</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">"offset points"</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
+            <span class="n">path_effects</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">pe</span><span class="o">.</span><span class="n">withStroke</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s2">"black"</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"[Figure 1] Original point clouds ($s = 1$)"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"$x_1$"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"$x_2$"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">17.0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">12.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">"Class"</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">,</span>
+        <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"figure1.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+    <span class="c1"># Figure 2: common axis limits make the changes in spread comparable.</span>
+    <span class="c1"># Getting all the points and it~s limits to configure the plot</span>
+    <span class="n">all_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">all_points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">all_points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">all_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">all_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">x_pad</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span>
+    <span class="n">y_pad</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">)</span>
+
+    <span class="c1"># Configuring the amount of subplots and the shared axis limits</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+        <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">10.8</span><span class="p">,</span> <span class="mf">8.2</span><span class="p">),</span>
+        <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">SCALES</span><span class="p">):</span>
+        <span class="c1"># Getting the points for that scale</span>
+        <span class="n">pts</span><span class="p">,</span> <span class="n">lab</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">lab</span> <span class="o">==</span> <span class="n">class_id</span>
+            <span class="c1"># Plotting the points for that class</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+                <span class="n">pts</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">s</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Class </span><span class="si">{</span><span class="n">class_id</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"$s = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">$"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_min</span> <span class="o">-</span> <span class="n">x_pad</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">+</span> <span class="n">x_pad</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">y_min</span> <span class="o">-</span> <span class="n">y_pad</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">+</span> <span class="n">y_pad</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"$y$"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"$x$"</span><span class="p">)</span>
+
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Class"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"[Figure 2] Effect of increasing the spread"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"figure2.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+    <span class="c1"># Calculating ratios and mixing rate for the output</span>
+    <span class="n">ratios</span> <span class="o">=</span> <span class="n">separation_ratios</span><span class="p">()</span>
+    <span class="n">mixing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">"s"</span><span class="p">:</span> <span class="n">SCALES</span><span class="p">,</span>
+        <span class="s2">"mixing_rate"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">mixing_rate</span><span class="p">(</span><span class="n">datasets</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="mi">0</span><span class="p">],</span> <span class="n">datasets</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">SCALES</span>
+        <span class="p">],</span>
+    <span class="p">})</span>
+
+    <span class="c1"># Figure 3: mixing rate as a function of the spread factor.</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.4</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Plotting mixing rate per value of scale (s)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mixing</span><span class="p">[</span><span class="s2">"s"</span><span class="p">],</span> <span class="n">mixing</span><span class="p">[</span><span class="s2">"mixing_rate"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mixing</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="c1"># Annotating the percentages of mixture observed on each spread</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'mixing_rate'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"s"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">"mixing_rate"</span><span class="p">]),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">"offset points"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"[Figure 3] Mixing rate as a function of spread"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Spread Scale Factor ($s$)"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Mixing Rate"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">SCALES</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"figure3.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ratios</span><span class="p">,</span> <span class="n">mixing</span>
+
+
+<span class="c1"># ============================================================</span>
+<span class="c1"># Exercise 2 - Non-linearity in higher dimensions</span>
+<span class="c1"># ============================================================</span>
+
+<span class="c1"># Params described in question prompt to generate samples</span>
+<span class="n">MU_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">SIGMA_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">MU_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">SIGMA_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">N_5D</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_5d_datasets</span><span class="p">():</span>
+    <span class="c1"># Generate samples using the multivariate distribution function</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">MU_A</span><span class="p">,</span> <span class="n">SIGMA_A</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N_5D</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">MU_B</span><span class="p">,</span> <span class="n">SIGMA_B</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N_5D</span><span class="p">)</span>
+
+    <span class="c1"># Generating the third dataset </span>
+    <span class="n">v_c</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N_5D</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>                        <span class="c1"># drawing v based on N(0, I_5)</span>
+    <span class="n">u_c</span> <span class="o">=</span> <span class="n">v_c</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v_c</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># normalizing v</span>
+    <span class="n">rho_c</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N_5D</span><span class="p">)</span>                 <span class="c1"># calculating class C (core)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">rho_c</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">u_c</span>                                <span class="c1"># generating poins based on radius</span>
+
+    <span class="n">v_d</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N_5D</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>                        <span class="c1"># drawing v based on N(0, I_5)</span>
+    <span class="n">u_d</span> <span class="o">=</span> <span class="n">v_d</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v_d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># normalizing v</span>
+    <span class="n">rho_d</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N_5D</span><span class="p">)</span>                 <span class="c1"># calculating class D (shell)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">rho_d</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">u_d</span>                                <span class="c1"># generating points based on radius</span>
+
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exercise_2</span><span class="p">():</span>
+    <span class="c1"># Generating samples</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">generate_5d_datasets</span><span class="p">()</span>
+
+    <span class="c1"># Stacking and compressing samples</span>
+    <span class="n">AB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">])</span>
+    <span class="n">CD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
+
+    <span class="c1"># Generating lables to keep track of trhe points in the stacked datasets</span>
+    <span class="n">labels_ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">"A"</span><span class="p">]</span> <span class="o">*</span> <span class="n">N_5D</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"B"</span><span class="p">]</span> <span class="o">*</span> <span class="n">N_5D</span><span class="p">)</span>
+    <span class="n">labels_cd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">"C"</span><span class="p">]</span> <span class="o">*</span> <span class="n">N_5D</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"D"</span><span class="p">]</span> <span class="o">*</span> <span class="n">N_5D</span><span class="p">)</span>
+
+    <span class="c1"># Applying PCA with 2 components</span>
+    <span class="n">pca_ab</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">pca_cd</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">AB_2d</span> <span class="o">=</span> <span class="n">pca_ab</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">AB</span><span class="p">)</span>
+    <span class="n">CD_2d</span> <span class="o">=</span> <span class="n">pca_cd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">CD</span><span class="p">)</span>
+
+    <span class="c1"># Figure 4: PCA projections</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">11.2</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">labels_ab</span> <span class="o">==</span> <span class="bp">cls</span>
+
+        <span class="c1"># Plotting AB points onto the PCA space</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="n">AB_2d</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">AB_2d</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Class </span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">]:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">labels_cd</span> <span class="o">==</span> <span class="bp">cls</span>
+
+        <span class="c1"># Plotting CD points onto the PCA space</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="n">CD_2d</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">CD_2d</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Class </span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Dataset I: shifted Gaussians"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Dataset II: concentric shells"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"PC1"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"PC2"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Class"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"[Figure 4] PCA projections into two dimensions"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"figure4.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+    <span class="c1"># Calculating distances to origin (radius) for each point</span>
+    <span class="n">radii_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">radii_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">radii_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">radii_D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Figure 5: radius distributions</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">11.2</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Plotting distributions of disatnces using histplot</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">radii_A</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Class A"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">radii_B</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Class B"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">radii_C</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Class C"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">radii_D</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Class D"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Dataset I"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Dataset II"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Radius ||x||"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Class"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"[Figure 5] Radius distributions in 5D"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"figure5.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+    <span class="c1"># Returning output results</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"distance_ab"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">MU_A</span> <span class="o">-</span> <span class="n">MU_B</span><span class="p">)),</span>
+        <span class="s2">"distance_cd"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">D</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))),</span>
+        <span class="s2">"pca_ab"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">pca_ab</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+        <span class="s2">"pca_cd"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">pca_cd</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+        <span class="s2">"radius_summary"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"A_mean"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">radii_A</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+            <span class="s2">"B_mean"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">radii_B</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+            <span class="s2">"C_mean"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">radii_C</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+            <span class="s2">"D_mean"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">radii_D</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+            <span class="s2">"C_median"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">radii_C</span><span class="p">)),</span>
+            <span class="s2">"D_median"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">radii_D</span><span class="p">)),</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+
+<span class="c1"># ============================================================</span>
+<span class="c1"># Exercise 3 - Real-world data</span>
+<span class="c1"># ============================================================</span>
+<span class="n">SPEND_COLS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"RoomService"</span><span class="p">,</span> <span class="s2">"FoodCourt"</span><span class="p">,</span> <span class="s2">"ShoppingMall"</span><span class="p">,</span> <span class="s2">"Spa"</span><span class="p">,</span> <span class="s2">"VRDeck"</span><span class="p">]</span>
+<span class="n">CATEGORICAL</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"HomePlanet"</span><span class="p">,</span> <span class="s2">"CryoSleep"</span><span class="p">,</span> <span class="s2">"Destination"</span><span class="p">,</span> <span class="s2">"VIP"</span><span class="p">]</span>
+<span class="n">NUMERICAL</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Age"</span><span class="p">]</span> <span class="o">+</span> <span class="n">SPEND_COLS</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"TotalSpend"</span><span class="p">]</span>
+<span class="n">DROP_COLS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Cabin"</span><span class="p">,</span> <span class="s2">"Name"</span><span class="p">,</span> <span class="s2">"PassengerId"</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stratified_split</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""80/20 stratified split using the one global RNG."""</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># For each target</span>
+    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span>              <span class="c1"># indexes of the target</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>                  <span class="c1"># permutate the sequence (randomness)</span>
+        <span class="n">n_test</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">test_size</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)))</span>   <span class="c1"># separate test size</span>
+        <span class="n">test_idx</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">idx</span><span class="p">[:</span><span class="n">n_test</span><span class="p">])</span>               <span class="c1"># get test with indexes respecting the size</span>
+        <span class="n">train_idx</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="n">n_test</span><span class="p">:])</span>              <span class="c1"># get train with indexes respecting the size</span>
+
+    <span class="k">return</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">train_idx</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">test_idx</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_exercise_3</span><span class="p">(</span><span class="n">train_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">train_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">train_path</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">"train.csv"</span>
+    <span class="n">train_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">train_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Place Kaggle train.csv at </span><span class="si">{</span><span class="n">train_path</span><span class="si">}</span><span class="s2"> before running Exercise 3."</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Open the data for training</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Transported"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"Transported"</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Getting to know the data</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">"Missing"</span><span class="p">:</span> <span class="n">X</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="s2">"Percentage"</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+    <span class="p">})</span>
+
+    <span class="n">spending_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">"Mean"</span><span class="p">:</span> <span class="n">X</span><span class="p">[</span><span class="n">SPEND_COLS</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s2">"Median"</span><span class="p">:</span> <span class="n">X</span><span class="p">[</span><span class="n">SPEND_COLS</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+        <span class="s2">"Maximum"</span><span class="p">:</span> <span class="n">X</span><span class="p">[</span><span class="n">SPEND_COLS</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+    <span class="p">})</span>
+
+    <span class="c1"># Splitting it</span>
+    <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="o">=</span> <span class="n">stratified_split</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Numerical imputation: training medians only.</span>
+    <span class="n">numeric_base</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Age"</span><span class="p">]</span> <span class="o">+</span> <span class="n">SPEND_COLS</span>
+    <span class="n">medians</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+    <span class="n">X_train</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">medians</span><span class="p">)</span>
+    <span class="n">X_test</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">medians</span><span class="p">)</span>
+
+    <span class="c1"># Categorical imputation: training modes only.</span>
+    <span class="n">modes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">col</span><span class="p">:</span> <span class="n">X_train</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">CATEGORICAL</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">CATEGORICAL</span><span class="p">:</span>
+        <span class="c1"># Convert to pandas' string dtype first; this avoids pandas' deprecated</span>
+        <span class="c1"># silent downcasting warning when filling object columns.</span>
+        <span class="n">train_col</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"string"</span><span class="p">)</span>
+        <span class="n">test_col</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"string"</span><span class="p">)</span>
+        <span class="n">mode_value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">modes</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+        <span class="n">X_train</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_col</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">mode_value</span><span class="p">)</span>
+        <span class="n">X_test</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_col</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">mode_value</span><span class="p">)</span>
+
+    <span class="c1"># Feature engineering is performed after imputation, so TotalSpend has no NaNs.</span>
+    <span class="n">X_train</span><span class="p">[</span><span class="s2">"TotalSpend"</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">SPEND_COLS</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">X_test</span><span class="p">[</span><span class="s2">"TotalSpend"</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">SPEND_COLS</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Preserve the pre-log FoodCourt distribution for Figure 6.</span>
+    <span class="n">foodcourt_before</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">"FoodCourt"</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Heavy tails: log(1+x) on the five spending variables.</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">SPEND_COLS</span><span class="p">:</span>
+        <span class="n">X_train</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+        <span class="n">X_test</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+
+    <span class="c1"># Drop identifiers / fields requested by the statement.</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">DROP_COLS</span><span class="p">)</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">DROP_COLS</span><span class="p">)</span>
+
+    <span class="c1"># Unknown test categories are ignored rather than causing a transform error.</span>
+    <span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">train_cat</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">CATEGORICAL</span><span class="p">])</span>
+    <span class="n">test_cat</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">CATEGORICAL</span><span class="p">])</span>
+
+    <span class="c1"># Standardization is fitted only on training data.</span>
+    <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+    <span class="n">train_num</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">NUMERICAL</span><span class="p">])</span>
+    <span class="n">test_num</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">NUMERICAL</span><span class="p">])</span>
+
+    <span class="n">X_train_final</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">train_num</span><span class="p">,</span> <span class="n">train_cat</span><span class="p">])</span>
+    <span class="n">X_test_final</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">test_num</span><span class="p">,</span> <span class="n">test_cat</span><span class="p">])</span>
+
+    <span class="c1"># Figure 6: heavy-tailed feature before and after log1p.</span>
+    <span class="n">foodcourt_after</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">"FoodCourt"</span><span class="p">]</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+        <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">foodcourt_before</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Before: FoodCourt"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"FoodCourt"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">foodcourt_after</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"After: log(1 + FoodCourt)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"log(1 + FoodCourt)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"[Figure 6] Effect of the log transformation"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"figure6.png"</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"positive_share"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="s2">"train_positive_share"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="s2">"test_positive_share"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="s2">"missing"</span><span class="p">:</span> <span class="n">missing</span><span class="p">,</span>
+        <span class="s2">"spending_stats"</span><span class="p">:</span> <span class="n">spending_stats</span><span class="p">,</span>
+        <span class="s2">"foodcourt_train_mean"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">][</span><span class="s2">"FoodCourt"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="s2">"foodcourt_train_median"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">][</span><span class="s2">"FoodCourt"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()),</span>
+        <span class="s2">"n_train"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_idx</span><span class="p">),</span>
+        <span class="s2">"n_test"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_idx</span><span class="p">),</span>
+        <span class="s2">"shape_train"</span><span class="p">:</span> <span class="n">X_train_final</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+        <span class="s2">"shape_test"</span><span class="p">:</span> <span class="n">X_test_final</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+        <span class="s2">"train_range"</span><span class="p">:</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">X_train_final</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">float</span><span class="p">(</span><span class="n">X_train_final</span><span class="o">.</span><span class="n">max</span><span class="p">())),</span>
+        <span class="s2">"test_range"</span><span class="p">:</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">X_test_final</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">float</span><span class="p">(</span><span class="n">X_test_final</span><span class="o">.</span><span class="n">max</span><span class="p">())),</span>
+        <span class="s2">"no_nan_train"</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_train_final</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="s2">"no_nan_test"</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_test_final</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">ratios</span><span class="p">,</span> <span class="n">mixing</span> <span class="o">=</span> <span class="n">exercise_1</span><span class="p">()</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">exercise_2</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"EXERCISE 1: separation ratios"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ratios</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">EXERCISE 1: mixing rates"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mixing</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">EXERCISE 2"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+
+    <span class="n">train_file</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">"train.csv"</span>
+    <span class="k">if</span> <span class="n">train_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">real</span> <span class="o">=</span> <span class="n">run_exercise_3</span><span class="p">(</span><span class="n">train_file</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">EXERCISE 3"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"positive_share"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"positive_share"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"FoodCourt train mean/median"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"foodcourt_train_mean"</span><span class="p">],</span> <span class="n">real</span><span class="p">[</span><span class="s2">"foodcourt_train_median"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"shape_train"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"shape_train"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"shape_test"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"shape_test"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"train_range"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"train_range"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"test_range"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"test_range"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"no_nan_train"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"no_nan_train"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"no_nan_test"</span><span class="p">,</span> <span class="n">real</span><span class="p">[</span><span class="s2">"no_nan_test"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Missing-value table"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">real</span><span class="p">[</span><span class="s2">"missing"</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Spending statistics"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">real</span><span class="p">[</span><span class="s2">"spending_stats"</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">EXERCISE 3 skipped: place train.csv at </span><span class="si">{</span><span class="n">train_file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h2 id="exercise-1">Exercise 1<a class="headerlink" href="#exercise-1" title="Permanent link">&para;</a></h2>
+<h3 id="point-clouds-geometry-and-spread-in-2d">Point Clouds: Geometry and Spread in 2D<a class="headerlink" href="#point-clouds-geometry-and-spread-in-2d" title="Permanent link">&para;</a></h3>
+<p>Understanding how data is distributed is the first step before designing a network architecture. In this exercise the idea is to generate and measure two-dimensional point clouds, observing how the distribution affects the complexity of the decision boundaries a neural network would need to learn.</p>
+<h3 id="a-generate-the-clouds">A — Generate the clouds<a class="headerlink" href="#a-generate-the-clouds" title="Permanent link">&para;</a></h3>
+<p>Four Gaussian Synthetic Point Clouds were generated in two dimensions, with 100 samples per class. The means and standard deviations follow the given configuration:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Mean</th>
+<th>Standard deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>(2, 3)</td>
+<td>(0.8, 2.5)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>(5, 6)</td>
+<td>(1.2, 1.9)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>(8, 1)</td>
+<td>(0.9, 0.9)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>(15, 4)</td>
+<td>(0.5, 2.0)</td>
+</tr>
+</tbody>
+</table>
+<p>The points are generated independently for each coordinate according to the corresponding Gaussian distribution. With that definition, the following plot can be presented with the generated points, segregated by their classes:</p>
+<p><img alt="Figure 1: Original point clouds with class centers and sketched boundaries" src="figures/figure1.png" /></p>
+<p>On Figure 1, the <code>X</code> markers indicate the class centers.</p>
+<p>The implementation used for the four classes is:</p>
+<div class="highlight"><pre><span></span><code><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">MEANS</span><span class="p">,</span> <span class="n">STDS</span><span class="p">)):</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span>
+        <span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">)</span>
+</code></pre></div>
+<h3 id="b-more-or-less-spread-out">B — More or less spread out<a class="headerlink" href="#b-more-or-less-spread-out" title="Permanent link">&para;</a></h3>
+<p>To isolate the effect of dispersion, the same four class means were kept fixed while every standard deviation was multiplied by a scale factor <span class="arithmatex">\(s\)</span>. This way, the menas never change, but the standard deviation does, changing how spread each cloud will be around it's center. The values for the scale factors are:</p>
+<p style="display: flex; align-items: center; justify-content: center; gap: 0.3rem;">
+  <var>s</var> &isin; {0.5, 1.0, 2.0, 4.0}
+</p>
+
+<p>This creates four independent datasets drived by a respective value of <span class="arithmatex">\(s\)</span>, each containing the same four classes with 100 points per class.</p>
+<p><img alt="Figure 2: Effect of increasing the spread" src="figures/figure2.png" /></p>
+<p>All four subplots use the same axis limits, so the visual comparison reflects only the change in dispersion honestly.</p>
+<p>For <span class="arithmatex">\(s=1\)</span>, the separation ratio was calculated as</p>
+<div class="arithmatex">\[
+r_{ij}=\frac{\lVert\mu_i-\mu_j\rVert}{\bar\sigma_i+\bar\sigma_j},
+\qquad
+\bar\sigma_k=\frac{\sigma_{k,x}+\sigma_{k,y}}{2}.
+\]</div>
+<p>After applying the formulas, the six pairwise ratios are:</p>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th style="text-align: right;">Center distance</th>
+<th style="text-align: right;"><span class="arithmatex">\(r_{ij}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\((0,1)\)</span></td>
+<td style="text-align: right;">4.2426</td>
+<td style="text-align: right;"><strong>1.3258</strong></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((0,2)\)</span></td>
+<td style="text-align: right;">6.3246</td>
+<td style="text-align: right;">2.4802</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((0,3)\)</span></td>
+<td style="text-align: right;">13.0384</td>
+<td style="text-align: right;">4.4960</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((1,2)\)</span></td>
+<td style="text-align: right;">5.8310</td>
+<td style="text-align: right;">2.3800</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((1,3)\)</span></td>
+<td style="text-align: right;">10.1980</td>
+<td style="text-align: right;">3.6422</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((2,3)\)</span></td>
+<td style="text-align: right;">7.6158</td>
+<td style="text-align: right;">3.5422</td>
+</tr>
+</tbody>
+</table>
+<p>The smallest ratio is therefore obtained by <strong>classes 0 and 1</strong>, with <span class="arithmatex">\(r_{01}=1.3258\)</span>. Because the means stay fixed while all standard deviations are multiplied by <span class="arithmatex">\(s\)</span>, every separation ratio scales as <span class="arithmatex">\(1/s\)</span>. Consequently,</p>
+<div class="arithmatex">\[
+r_{01}(s=2)=\frac{1.3258}{2}\approx\mathbf{0.6629}.
+\]</div>
+<p>The <strong>mixing rate</strong> is defined geometrically as the fraction of points whose nearest class center is not the center of their own class. Using the specified class means as the reference centers gives, we have the following calculated values for the metric:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Spread factor <span class="arithmatex">\(s\)</span></th>
+<th style="text-align: right;">Mixing rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;"><strong>0.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;"><strong>7.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;"><strong>19.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;"><strong>48.25%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 3: Mixing rate as a function of spread" src="figures/figure3.png" /></p>
+<p>The geometric mixing rate increases monotonically as the standard deviations grow, demonstrating a clear trend. Consequently, increasing the spread does not shift the class centers, but rather expands the volume of the regions occupied by each class. As a result, points from different classes increasingly overlap within each other's neighborhoods (thus causing an increase in the mixing rate).</p>
+<h3 id="exercise-1-analysis">C — Analysis<a class="headerlink" href="#exercise-1-analysis" title="Permanent link">&para;</a></h3>
+<p>At <span class="arithmatex">\(s=1\)</span>, the four classes are still organized around distinct centers, with classes 0 and 1 already showing the most relevant overlap. A set of straight boundaries can approximate the partition of the four cluster centers, but perfect separation is already lost in the generated sample: the mixing rate is 7.25%. In other words, <strong>there is no set of linear boundaries that can classify every sampled point correctly at <span class="arithmatex">\(s = 1\)</span></strong>.</p>
+<p><strong>The effect becomes substantially stronger at <span class="arithmatex">\(s=2\)</span></strong>. The smallest separation ratio falls from 1.3258 to approximately 0.6629, while the mixing rate increases to 19.25%. At this point, the class regions around the first three centers overlap enough that <strong>straight boundaries are no longer a convincing description</strong> of the class structure. At <span class="arithmatex">\(s=4\)</span>, almost half of the points are geometrically assigned to a different nearest class center, indicating severe mixing.</p>
+<p>On the opposite side, a contrary effect can be seen as the <span class="arithmatex">\(s\)</span> factor is decreased. At <span class="arithmatex">\(s=0.5\)</span>, the class distributions become considerably more compact around their respective centers, reducing the mixing rate to only 0.25%. This indicates that almost all sampled points remain closest to their own class center, making all the classes clearly separated and allowing <strong>straight boundaries to provide a much more accurate description of the class structure</strong>.</p>
+<p>The key lesson from this exercise is that <strong>spread is not merely a visualization property</strong>. It directly changes the overlap between classes and therefore changes the complexity and difficulty of the decision problem that a neural network has to learn.</p>
+<hr />
+<h2 id="exercise-2">Exercise 2<a class="headerlink" href="#exercise-2" title="Permanent link">&para;</a></h2>
+<h3 id="a-dataset-i-shifted-gaussians">A — Dataset I: shifted Gaussians<a class="headerlink" href="#a-dataset-i-shifted-gaussians" title="Permanent link">&para;</a></h3>
+<p>Dataset I contains 500 samples from Class A and 500 from Class B in five dimensions. The classes have different mean vectors and different covariance matrices, so both their centers and their shapes contribute to the classification problem.</p>
+<p>Class A uses</p>
+<div class="arithmatex">\[
+\mu_A=[0,0,0,0,0],
+\qquad
+\Sigma_A = \begin{pmatrix}
+    1.0 &amp; 0.8 &amp; 0.1 &amp; 0.0 &amp; 0.0 \\ 
+    0.8 &amp; 1.0 &amp; 0.3 &amp; 0.0 &amp; 0.0 \\ 
+    0.1 &amp; 0.3 &amp; 1.0 &amp; 0.5 &amp; 0.0 \\
+    0.0 &amp; 0.0 &amp; 0.5 &amp; 1.0 &amp; 0.2 \\
+    0.0 &amp; 0.0 &amp; 0.0 &amp; 0.2 &amp; 1.0
+\end{pmatrix}
+\]</div>
+<p>Meanwhile, class B uses</p>
+<div class="arithmatex">\[
+\mu_B=[1.5,1.5,1.5,1.5,1.5],
+\qquad
+\Sigma_B = \begin{pmatrix}
+    1.5  &amp; -0.7 &amp; 0.2 &amp; 0.0 &amp; 0.0 \\ 
+    -0.7 &amp;  1.5 &amp; 0.4 &amp; 0.0 &amp; 0.0 \\ 
+    0.2  &amp;  0.4 &amp; 1.5 &amp; 0.6 &amp; 0.0 \\
+    0.0  &amp;  0.0 &amp; 0.6 &amp; 1.5 &amp; 0.3 \\
+    0.0  &amp;  0.0 &amp; 0.0 &amp; 0.3 &amp; 1.5
+\end{pmatrix}
+\]</div>
+<p>Given those definitions, the Euclidean distance between the two class centers is</p>
+<div class="arithmatex">\[
+\lVert\mu_A-\mu_B\rVert = \mathbf{3.3541}.
+\]</div>
+<p>This nonzero displacement gives the classes a clear directional difference in the original five-dimensional space.</p>
+<h3 id="b-dataset-ii-concentric-shells">B — Dataset II: concentric shells<a class="headerlink" href="#b-dataset-ii-concentric-shells" title="Permanent link">&para;</a></h3>
+<p>Dataset II also contains 500 samples per class, but the geometry is different. For every sample, a five-dimensional direction is generated from a standard Gaussian vector and normalized to unit length. The radius is then drawn independently for the two classes:</p>
+<ul>
+<li>Class C: <span class="arithmatex">\(\rho\sim\mathcal N(2.0,0.4)\)</span></li>
+<li>Class D: <span class="arithmatex">\(\rho\sim\mathcal N(5.0,0.4)\)</span></li>
+</ul>
+<p>The final point is</p>
+<div class="arithmatex">\[
+ x=\rho \cdot u,
+\]</div>
+<p>where <span class="arithmatex">\(u\)</span> is a unit vector. The result is <strong>an inner cloud surrounded by an outer shell</strong>.</p>
+<p>Because the directions are approximately symmetric around the origin, the class centers are both close to zero. In this realization, their distance is only</p>
+<div class="arithmatex">\[
+\lVert\mu_C-\mu_D\rVert=\mathbf{0.2215}.
+\]</div>
+<p>This is the central contrast of the exercise: the centers are almost coincident even though the classes are well separated by radius.</p>
+<h3 id="c-visualize-and-compare">C — Visualize and compare<a class="headerlink" href="#c-visualize-and-compare" title="Permanent link">&para;</a></h3>
+<p>Since the datasets live in five dimensions, PCA was used to obtain a two-dimensional linear projection.</p>
+<p><img alt="Figure 4 — PCA projections" src="figures/figure4.png" /></p>
+<p>Dataset I retains a visible directional separation, whereas the two shell classes in Dataset II appear heavily mixed after projection.</p>
+<p>The first two principal components explain:</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th style="text-align: right;">PC1 + PC2 explained variance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset I</td>
+<td style="text-align: right;"><strong>67.35%</strong></td>
+</tr>
+<tr>
+<td>Dataset II</td>
+<td style="text-align: right;"><strong>42.27%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The 2D projection therefore preserves more of the overall variance of Dataset I. More importantly, in Dataset I this preserved variance contains information related to the displacement between the class centers. In Dataset II, the classification-relevant information is radial and is not preserved as a simple separation in the first two principal components.</p>
+<p>The relevant five-dimensional center distances are:</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th style="text-align: right;">Center distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I - A vs B</td>
+<td style="text-align: right;"><strong>3.3541</strong></td>
+</tr>
+<tr>
+<td>II - C vs D</td>
+<td style="text-align: right;"><strong>0.2215</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The radius distributions make the hidden structure of Dataset II explicit:</p>
+<p><img alt="Figure 5 — Radius distributions" src="figures/figure5.png" /></p>
+<p>The shell classes are strongly separated by <span class="arithmatex">\(\lVert x\rVert\)</span>, even though their centers are nearly identical.</p>
+<h3 id="d-analysis">D — Analysis<a class="headerlink" href="#d-analysis" title="Permanent link">&para;</a></h3>
+<p>Dataset II demonstrates why the distance between class centers is not sufficient to characterize a classification problem. Its centers are almost coincident, but the two classes occupy different radial regions. A hyperplane cannot isolate an inner ball from a surrounding shell: any straight boundary that keeps the origin on one side necessarily cuts through the surrounding directions, because the shell extends around the core in every direction.</p>
+<p>This means that <strong>no linear boundary can perfectly separate the two classes</strong>, regardless of the number of samples available. More data would estimate the same nonlinear geometry more accurately, but it would not change the fact that the required boundary is curved.</p>
+<p>The poor-looking PCA projection does not prove that Dataset II is inseparable in the original space. PCA is a linear dimensionality-reduction method that keeps directions of greatest variance; it does not guarantee preservation of the feature that best separates classes. Here, the relevant feature is radial distance.</p>
+<p>A simple function that separates the two shell classes is</p>
+<div class="arithmatex">\[
+ f(x)=\lVert x\rVert^2=\sum_{i=1}^{5}x_i^2.
+\]</div>
+<p>A threshold <span class="arithmatex">\(t\)</span> between the two radius ranges can then be used to classify the samples:</p>
+<div class="arithmatex">\[
+\hat y =
+\begin{cases}
+C, &amp; f(x) &lt; t,\\
+D, &amp; f(x) \ge t.
+\end{cases}
+\]</div>
+<p>Thus, the original space contains a simple nonlinear rule even though a two-dimensional PCA projection can make the classes look almost indistinguishable.</p>
+<hr />
+<h2 id="exercise-3">Exercise 3<a class="headerlink" href="#exercise-3" title="Permanent link">&para;</a></h2>
+<h3 id="a-get-to-know-the-data">A — Get to know the data<a class="headerlink" href="#a-get-to-know-the-data" title="Permanent link">&para;</a></h3>
+<p>The real-world dataset is the <strong>Spaceship Titanic</strong> training set from Kaggle. The target <code>Transported</code> indicates whether a passenger was transported to another dimension. Here, the proposal is that a Spaceship Titanic collision occured in which some of the pessangers were transported to an alternate dimension. That's the <strong>target</strong> the neural network would need to predict.</p>
+<p>The original training set contains 8,693 labeled passengers, with 4,378 transported and 4,315 not transported, corresponding to a positive-class share of <strong>50.36%</strong>. The dataset is, therefore, close to balanced.</p>
+<p>The features can be divided into numerical and categorical variables, as shown in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numerical</td>
+<td><code>Age</code>, <code>RoomService</code>, <code>FoodCourt</code>, <code>ShoppingMall</code>, <code>Spa</code>, <code>VRDeck</code></td>
+</tr>
+<tr>
+<td>Categorical</td>
+<td><code>HomePlanet</code>, <code>CryoSleep</code>, <code>Cabin</code>, <code>Destination</code>, <code>VIP</code>, <code>Name</code>, <code>PassengerId</code></td>
+</tr>
+<tr>
+<td>Target</td>
+<td><code>Transported</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>Cabin</code>, <code>Name</code>, and <code>PassengerId</code> are removed during preprocessing because they are identifiers or high-cardinality fields rather than direct numerical predictors.</p>
+<p>Missing values are present in almost every column, at a fairly uniform rate around 2%:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th style="text-align: right;">Missing (count)</th>
+<th style="text-align: right;">Missing (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PassengerId</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.00%</td>
+</tr>
+<tr>
+<td>HomePlanet</td>
+<td style="text-align: right;">201</td>
+<td style="text-align: right;">2.31%</td>
+</tr>
+<tr>
+<td>CryoSleep</td>
+<td style="text-align: right;">217</td>
+<td style="text-align: right;">2.50%</td>
+</tr>
+<tr>
+<td>Cabin</td>
+<td style="text-align: right;">199</td>
+<td style="text-align: right;">2.29%</td>
+</tr>
+<tr>
+<td>Destination</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">2.09%</td>
+</tr>
+<tr>
+<td>Age</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">2.06%</td>
+</tr>
+<tr>
+<td>VIP</td>
+<td style="text-align: right;">203</td>
+<td style="text-align: right;">2.34%</td>
+</tr>
+<tr>
+<td>RoomService</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">2.08%</td>
+</tr>
+<tr>
+<td>FoodCourt</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">2.11%</td>
+</tr>
+<tr>
+<td>ShoppingMall</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">2.39%</td>
+</tr>
+<tr>
+<td>Spa</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">2.11%</td>
+</tr>
+<tr>
+<td>VRDeck</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">2.16%</td>
+</tr>
+<tr>
+<td>Name</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">2.30%</td>
+</tr>
+</tbody>
+</table>
+<p>The spending variables are strongly right-skewed. The full results can be seen on the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RoomService</td>
+<td style="text-align: right;">224.69</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">14327.0</td>
+</tr>
+<tr>
+<td>FoodCourt</td>
+<td style="text-align: right;">458.08</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">29813.0</td>
+</tr>
+<tr>
+<td>ShoppingMall</td>
+<td style="text-align: right;">173.73</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">23492.0</td>
+</tr>
+<tr>
+<td>Spa</td>
+<td style="text-align: right;">311.14</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">22408.0</td>
+</tr>
+<tr>
+<td>VRDeck</td>
+<td style="text-align: right;">304.85</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">24133.0</td>
+</tr>
+</tbody>
+</table>
+<p>On the full labeled dataset, <code>RoomService</code>, <code>FoodCourt</code>, <code>ShoppingMall</code>, <code>Spa</code> and <code>VRDeck</code> all have a <strong>median of 0.00</strong> with <strong>maximums</strong> as high as 29,813 (<code>FoodCourt</code>). The fact that the median sits at zero while the mean is in the hundreds means that the <strong>majority</strong> of passengers spend nothing at all, and a relatively small number of high-spending passengers pull the mean far above the median: a textbook heavy-tailed, right-skewed distribution.</p>
+<h3 id="b-split-before-you-transform">B — Split before you transform<a class="headerlink" href="#b-split-before-you-transform" title="Permanent link">&para;</a></h3>
+<p>The dataset is split into 80% training and 20% test data <strong>before</strong> fitting any imputer, encoder, or scaler. The split is stratified by <code>Transported</code> and uses the same global random-number generator used in the report.</p>
+<p>This ordering prevents <strong>data leakage</strong>. If a median, standard deviation, or observed category were calculated using the complete dataset, information from the test set would influence the transformation applied to the training data. The resulting preprocessing would therefore indirectly expose information about data that should remain unseen until evaluation.</p>
+<p>The split is implemented manually so that the same <code>rng</code> instance is reused throughout the entire activity:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">stratified_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="n">n_test</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">test_size</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)))</span>
+        <span class="n">test_idx</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">idx</span><span class="p">[:</span><span class="n">n_test</span><span class="p">])</span>
+        <span class="n">train_idx</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="n">n_test</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">train_idx</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">test_idx</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="c-preprocess">C — Preprocess<a class="headerlink" href="#c-preprocess" title="Permanent link">&para;</a></h3>
+<p>The numerical variables are imputed with the <strong>training-set median</strong>, which is more robust than the mean for strongly skewed spending variables. The categorical variables are filled with their most frequent training category.</p>
+<p>The four categorical predictors are <strong>one-hot encoded</strong>. The encoder uses <code>handle_unknown="ignore"</code>, so a category that appears in the test set but was not observed during training does not cause an error; it simply contributes zeros to the corresponding one-hot representation.</p>
+<p>The five spending variables are transformed with</p>
+<div class="arithmatex">\[
+ x' = \log(1+x),
+\]</div>
+<p>which compresses the extreme right tail while preserving zeros. This produces a much more manageable numerical range for a network with <code>tanh</code> activations.</p>
+<p>After the logarithmic transformation, the engineered <code>TotalSpend</code> feature is computed as the sum of the five transformed spending variables. The fields <code>Cabin</code>, <code>Name</code>, and <code>PassengerId</code> are then removed.</p>
+<p>Finally, the numerical variables are standardized using the training data only. Standardization was chosen because it produces centered, unit-scale numerical inputs while avoiding the dependence of MinMax scaling on the particular sample extremes. The categorical one-hot features remain in the <span class="arithmatex">\([0,1]\)</span> range.</p>
+<p>The full preprocessing implementation is available in <a href="code/data_activity.py"><code>data_activity.py</code></a>. The important training-only fitting steps are:</p>
+<div class="highlight"><pre><span></span><code><span class="n">medians</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">X_train</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">medians</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">numeric_base</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">medians</span><span class="p">)</span>
+
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span>
+    <span class="n">handle_unknown</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">,</span>
+    <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">train_cat</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">CATEGORICAL</span><span class="p">])</span>
+<span class="n">test_cat</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">CATEGORICAL</span><span class="p">])</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">train_num</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">NUMERICAL</span><span class="p">])</span>
+<span class="n">test_num</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">NUMERICAL</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="d-verify-and-visualize">D — Verify and visualize<a class="headerlink" href="#d-verify-and-visualize" title="Permanent link">&para;</a></h3>
+<p>Figure 6 shows the effect of the logarithmic transformation on <code>FoodCourt</code>, computed on the actual training split:</p>
+<p><img alt="Figure 6 — Effect of the log transformation on FoodCourt" src="figures/figure6.png" /></p>
+<p>The raw training distribution (left) is dominated by a single spike at 0 with a long right tail stretching past 25,000. After <code>log(1 + FoodCourt)</code> (right), that same spike at 0 remains exactly at 0 (since <span class="arithmatex">\(\log(1+0)=0\)</span>), while the non-zero spenders are spread out over a much more compact, roughly bell-shaped range (the compression a <code>tanh</code>-based network benefits from).</p>
+<p>The pipeline was run end-to-end on the real Kaggle <code>train.csv</code> (8,693 rows, stratified 80/20 split). It satisfies three final conditions: no remaining <code>NaN</code> values in either split, a finite final feature matrix, and scaled numerical inputs centered around a range appropriate for a <code>tanh</code>-based network. The training split's positive-class share is <strong>50.36%</strong>, confirming the dataset stayed balanced after the split.</p>
+<p>The preprocessing decision expected to have the largest impact on training is the combination of <strong>heavy-tail compression and scaling</strong>. Without these steps, a few very large spending values would dominate the numerical scale of the inputs, forcing the network to operate in a poorly conditioned region and potentially pushing <code>tanh</code> units toward saturation. The imputation and categorical encoding are also necessary for a complete numerical matrix, but the log transformation and scaling directly affect the numerical geometry seen by every layer.</p>
+<hr />
+<h2 id="results-summary">Results Summary<a class="headerlink" href="#results-summary" title="Permanent link">&para;</a></h2>
+<p>The following table collects the numerical results discussed above, all produced by the single reproducible run of <a href="code/data_activity.py"><code>data_activity.py</code></a> against the real Kaggle <code>train.csv</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Item</th>
+<th style="text-align: right;">Result observed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Mixing rate at <span class="arithmatex">\(s=0.5\)</span></td>
+<td style="text-align: right;"><strong>0.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Mixing rate at <span class="arithmatex">\(s=1.0\)</span></td>
+<td style="text-align: right;"><strong>7.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Mixing rate at <span class="arithmatex">\(s=2.0\)</span></td>
+<td style="text-align: right;"><strong>19.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Mixing rate at <span class="arithmatex">\(s=4.0\)</span></td>
+<td style="text-align: right;"><strong>48.25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Smallest <span class="arithmatex">\(r_{ij}\)</span> at <span class="arithmatex">\(s=1.0\)</span>, and pair</td>
+<td style="text-align: right;"><strong>1.3258 · classes (0, 1)</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Distance between centers — Dataset I</td>
+<td style="text-align: right;"><strong>3.3541</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Distance between centers — Dataset II</td>
+<td style="text-align: right;"><strong>0.2215</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Explained variance PC1 + PC2 — Dataset I</td>
+<td style="text-align: right;"><strong>67.35%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Explained variance PC1 + PC2 — Dataset II</td>
+<td style="text-align: right;"><strong>42.27%</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>Share of the positive class in <code>Transported</code></td>
+<td style="text-align: right;"><strong>50.36%</strong> (training split)</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>Mean and median of <code>FoodCourt</code> on the training set, before transforming</td>
+<td style="text-align: right;"><strong>mean = 462.14 · median = 0.00</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>Final shape of the training feature matrix</td>
+<td style="text-align: right;"><strong>(6954, 17)</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>Minimum and maximum of the training and test sets after scaling</td>
+<td style="text-align: right;"><strong>train: [−2.0120, 12.2615] · test: [−2.0120, 10.5175]</strong></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../perceptron/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Perceptron">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Perceptron
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+    
+  </body>
+</html>
