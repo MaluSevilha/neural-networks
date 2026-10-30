@@ -26,6 +26,14 @@ Backpropagation worked by hand, then an **Multi-Layer Perceptrons** built for bi
 
 </div>
 
+<div class="home-card" markdown>
+
+### [4 · VAE](vae/index.md)
+
+Variational autoencoders trained on MNIST, separating reconstruction and KL costs and exploring what the **latent prior** buys us.
+
+</div>
+
 </div>
 
 !!! info "Status"

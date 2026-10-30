@@ -78,6 +78,7 @@ nav:
       - 1. Data: exercises/data/index.md
       - 2. Perceptron: exercises/perceptron/index.md
       - 3. MLP: exercises/mlp/index.md
+      - 4. VAE: exercises/vae/index.md
   - Projects:
       - Overview: projects/index.md
   - About: about.md
